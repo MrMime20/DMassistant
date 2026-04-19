@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --page: #EBE6DA;
+  --parchment: #FDFBF7;
+  --ink: #3D352F;
+  --ink-light: #6B5E54;
+  --olive: #5A5A40;
+  --crimson: #8C3B3B;
+  --border-theme: rgba(61, 53, 47, 0.15);
+}
+
+.dark {
+  --page: #0D0C0A;
+  --parchment: #161512;
+  --ink: #E5E1D9;
+  --ink-light: #A89F95;
+  --olive: #9E9E80;
+  --crimson: #C55656;
+  --border-theme: rgba(229, 225, 217, 0.08);
+}
+
+@theme {
+  --color-page: var(--page);
+  --color-parchment: var(--parchment);
+  --color-ink: var(--ink);
+  --color-ink-light: var(--ink-light);
+  --color-olive: var(--olive);
+  --color-crimson: var(--crimson);
+  --color-border-theme: var(--border-theme);
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-page text-ink font-sans transition-colors duration-300;
+  }
+
+  /* PDF Viewer specific overrides for dark mode if needed path */
+  .dark iframe {
+    filter: invert(0.9) hue-rotate(180deg);
+  }
+  .dark .no-invert {
+    filter: none;
+  }
+}
