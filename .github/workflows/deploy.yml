@@ -19,8 +19,8 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22 # Updated to a newer version
+          # Removed the 'cache' line that was causing the error
 
       - name: Install dependencies
         run: npm install
